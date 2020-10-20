@@ -61,7 +61,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT driver, PUNICODE_STRING regPath) {
 				"xxx????xxxxxxxxxxx????xx");
 
 	if (!addr) {
-		printf("Unable to find singature!");
+		printf("[mapper] Unable to find signature!");
 		return STATUS_FAILED_DRIVER_ENTRY;
 	}
 
