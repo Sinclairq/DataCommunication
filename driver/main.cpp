@@ -33,18 +33,6 @@ PVOID NtCompareSigningLevelsHook(Communication* arg0, PBYTE arg1) {
 			}
 			break;
 		}
-		case Request::READPROCESSMEMORY: {
-
-			if (comms.processID) {
-				PEPROCESS process = { 0 };
-				PsLookupProcessByProcessId((HANDLE)args->processID, &process);
-				KeAttachProcess(process);
-				Core::ReadVirtualMemory(&args->result, args->Address, args->size);
-				KeDetachProcess();
-				ObDereferenceObject(process);
-			}
-			break;
-		}
 	}
 
 	return NULL;
